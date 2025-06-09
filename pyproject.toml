@@ -9,7 +9,7 @@ requires-python = ">=3.8"
 dependencies = []
 
 [project.optional-dependencies]
-django = []
+django = ["Django>=3.2"]
 jinja = ["Jinja2>=3.0"]
 dev = ["pytest", "pytest-cov", "black", "flake8", "mypy"]
 
