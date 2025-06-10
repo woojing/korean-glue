@@ -43,4 +43,3 @@ def test_exception_rule():
         assert attach("사과", "은/는") == "사과딱"
     finally:
         remove_exception_rule("사과", "은/는")
-
