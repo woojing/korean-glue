@@ -8,11 +8,11 @@ A modern Python library for Korean josa processing combining rule-based and dict
 pip install korean_glue
 ```
 
-Optional extras are provided for Django and Jinja2 integration:
+Framework integrations rely on Django and Jinja2. The `dev` extras also install
+tooling such as tox and tox-uv for running the test suite:
 
 ```bash
-pip install korean_glue[django]
-pip install korean_glue[jinja]
+pip install -e .[dev]
 ```
 
 ## Usage
@@ -58,7 +58,7 @@ result = env.from_string("{{ word|josa('으로/로') }}").render(word="서울")
 
 ## Running Tests
 
-Install development dependencies and run:
+Install development dependencies (Django, Jinja2, tox and tox-uv) and run:
 
 ```bash
 pip install -e .[dev]
@@ -77,11 +77,11 @@ pytest
 pip install korean_glue
 ```
 
-Django와 Jinja2 연동을 위한 추가 기능은 다음과 같이 설치합니다.
+프로젝트에서 Django나 Jinja2, 그리고 tox 기반 테스트 도구를 함께 사용하
+려면 개발 환경용 의존성을 한 번에 설치합니다.
 
 ```bash
-pip install korean_glue[django]
-pip install korean_glue[jinja]
+pip install -e .[dev]
 ```
 
 ## 사용 방법
@@ -126,7 +126,7 @@ result = env.from_string("{{ word|josa('으로/로') }}").render(word="서울")
 
 ## 테스트 실행
 
-개발용 의존성을 설치한 후 다음 명령어를 실행합니다.
+개발용 의존성(Django, Jinja2, tox 등이 포함)을 설치한 후 다음 명령어를 실행합니다.
 
 ```bash
 pip install -e .[dev]

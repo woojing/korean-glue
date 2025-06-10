@@ -9,9 +9,18 @@ requires-python = ">=3.8"
 dependencies = []
 
 [project.optional-dependencies]
-django = ["Django>=3.2"]
-jinja = ["Jinja2>=3.0"]
-dev = ["pytest", "pytest-cov", "black", "flake8", "mypy", "pre-commit"]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+    "pre-commit",
+    "Django>=3.2",
+    "Jinja2>=3.0",
+    "tox",
+    "tox-uv",
+]
 
 [build-system]
 requires = ["hatchling"]
