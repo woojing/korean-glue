@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
   pull_request:
 
 jobs:
@@ -10,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.10', '3.11', '3.12', '3.13']
+        python-version: ['3.13']
     steps:
       - uses: actions/checkout@v4
       - name: Install uv and set Python
@@ -20,7 +19,7 @@ jobs:
           enable-cache: true
           create-venv: true
       - name: Install dependencies
-        run: uv activate && uv pip install -e ".[dev]" tox-gh-actions
+        run: uv pip install -e ".[dev]" tox-gh-actions
       - name: Cache tox env
         uses: actions/cache@v4
         with:
