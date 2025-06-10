@@ -18,10 +18,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
+          create-venv: true
       - name: Install dependencies
-        run: uv pip install -e ".[dev]" tox-gh-actions
-        env:
-          UV_SYSTEM_PYTHON: 1
+        run: uv activate && uv pip install -e ".[dev]" tox-gh-actions
       - name: Cache tox env
         uses: actions/cache@v4
         with:
