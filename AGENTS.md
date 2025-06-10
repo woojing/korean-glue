@@ -39,6 +39,18 @@ You can also invoke pre-commit manually:
 pre-commit run --all-files
 ```
 
+### Troubleshooting
+
+If `bash scripts/check.sh` fails because tools are missing, ensure the
+development dependencies are installed:
+
+```bash
+uv pip install -e ".[dev]"
+```
+
+Reinstall them whenever you recreate the virtual environment or change the
+Python version.
+
 ## Pull Requests
 
 - Summarize user-facing changes.
