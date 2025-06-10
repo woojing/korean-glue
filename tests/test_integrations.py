@@ -1,13 +1,17 @@
-import pytest
-
-from korean_glue.integrations import jinja_filters, django_tags
+from korean_glue.integrations import jinja_filters
 from jinja2 import Environment
 from django.template import Engine, Context
 from django.conf import settings
 import django
 
 if not settings.configured:
-    settings.configure(TEMPLATES=[{"BACKEND": "django.template.backends.django.DjangoTemplates"}])
+    settings.configure(
+        TEMPLATES=[
+            {
+                "BACKEND": "django.template.backends.django.DjangoTemplates",
+            }
+        ]
+    )
 django.setup()
 
 
