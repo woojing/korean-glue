@@ -22,7 +22,7 @@ _FINAL_ALPHABET = set("FHLMNRS")
 
 
 def has_final_consonant(word: str) -> bool:
-    """Return True if ``word`` should be treated as ending with a final consonant."""
+    """Return True if ``word`` ends with a final consonant."""
     if not word:
         return False
     last = word[-1]

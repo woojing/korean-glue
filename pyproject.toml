@@ -11,7 +11,7 @@ dependencies = []
 [project.optional-dependencies]
 django = ["Django>=3.2"]
 jinja = ["Jinja2>=3.0"]
-dev = ["pytest", "pytest-cov", "black", "flake8", "mypy"]
+dev = ["pytest", "pytest-cov", "black", "flake8", "mypy", "pre-commit"]
 
 [build-system]
 requires = ["hatchling"]
