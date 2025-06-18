@@ -1,21 +1,21 @@
-<!-- README.md -->
-[한국어](README.ko.md)
+<!-- README.ko.md -->
+[English](README.md)
 
-# korean_glue
+# korean_glue (한국어)
 
-A modern Python library for Korean josa processing combining rule-based and dictionary-based approaches. Django template tags and Jinja2 filters are included for easy web framework integration.
+규칙 기반과 예외 사전을 결합한 현대적인 한국어 조사 처리 파이썬 라이브러리입니다. Django 템플릿 태그와 Jinja2 필터를 제공하여 웹 프레임워크에서도 간편하게 사용할 수 있습니다.
 
-## Installation
+## 설치
 
 ```bash
 pip install korean_glue
 ```
 
-Framework integrations rely on Django and Jinja2.
+프로젝트에서 Django나 Jinja2를 함께 사용한다면 추가 패키지가 필요합니다.
 
-## Usage
+## 사용 방법
 
-### Basic API
+### 기본 API
 
 ```python
 from korean_glue import attach, get_josa
@@ -24,7 +24,7 @@ print(get_josa("사과", "은/는"))  # "는"
 print(attach("사과", "은/는"))    # "사과는"
 ```
 
-### Custom Exception Rules
+### 사용자 정의 예외 규칙
 
 ```python
 from korean_glue import add_exception_rule, remove_exception_rule, attach
@@ -34,7 +34,7 @@ print(attach("사과", "은/는"))  # "사과당"
 remove_exception_rule("사과", "은/는")
 ```
 
-### Framework Integrations
+### 프레임워크 연동
 
 **Django**
 
@@ -53,11 +53,10 @@ jinja_filters.register(env)
 result = env.from_string("{{ word|josa('으로/로') }}").render(word="서울")
 ```
 
-## Running Tests
+## 테스트 실행
 
-After setting up a development environment (see `CONTRIBUTING.md`), run:
+개발 환경을 준비한 뒤 다음 명령어로 테스트를 실행합니다(자세한 내용은 `CONTRIBUTING.md` 참고).
 
 ```bash
 pytest
 ```
-
