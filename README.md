@@ -3,6 +3,10 @@
 
 # korean_glue
 
+[![CI](https://github.com/woojing/korean-glue/actions/workflows/ci.yml/badge.svg)](https://github.com/woojing/korean-glue/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12%20|%203.13-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/github/license/woojing/korean-glue)](LICENSE)
+
 A modern Python library for Korean josa processing combining rule-based and dictionary-based approaches. Django template tags and Jinja2 filters are included for easy web framework integration.
 
 ## Installation
