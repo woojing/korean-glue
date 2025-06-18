@@ -37,6 +37,9 @@ dev = [
     "tox-uv",
 ]
 
+[project.scripts]
+kglue = "korean_glue.__main__:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
