@@ -34,6 +34,16 @@ print(attach("사과", "은/는"))  # "사과당"
 remove_exception_rule("사과", "은/는")
 ```
 
+### Command Line
+
+Install the package and run the `kglue` command:
+
+```bash
+kglue '철수(은/는)'
+kglue 'K(이/가)'
+kglue '3(을/를)'
+```
+
 ### Framework Integrations
 
 **Django**
