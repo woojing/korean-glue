@@ -3,10 +3,25 @@ name = "korean_glue"
 version = "0.1.0"
 description = "A modern Python library for Korean josa processing with dictionary support and framework integrations."
 readme = "README.md"
-license = { file = "LICENSE" }
-authors = [ { name = "Codex", email = "codex@openai.com" } ]
-requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "woojing", email = "woojing.seok@gmail.com" }]
+requires-python = ">=3.10"
 dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Natural Language :: Korean",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries",
+    "Intended Audience :: Developers",
+    "Development Status :: 4 - Beta",
+]
 
 [project.optional-dependencies]
 dev = [
