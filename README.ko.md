@@ -3,6 +3,10 @@
 
 # korean_glue (한국어)
 
+[![CI](https://github.com/woojing/korean-glue/actions/workflows/ci.yml/badge.svg)](https://github.com/woojing/korean-glue/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12%20|%203.13-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/github/license/woojing/korean-glue)](LICENSE)
+
 규칙 기반과 예외 사전을 결합한 현대적인 한국어 조사 처리 파이썬 라이브러리입니다. Django 템플릿 태그와 Jinja2 필터를 제공하여 웹 프레임워크에서도 간편하게 사용할 수 있습니다.
 
 ## 설치
