@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv and set Python
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.13'
+          enable-cache: true
+          create-venv: true
+      - name: Install build tool
+        run: uv pip install hatch
+      - name: Build wheel
+        run: hatch build -t wheel
+      - name: Publish Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.whl
