@@ -11,6 +11,8 @@ from korean_glue import (
 def test_basic_josa():
     assert get_josa("사과", "은/는") == "는"
     assert attach("사과", "은/는") == "사과는"
+    assert get_josa("철수", "은") == "는"
+    assert attach("철수", "은") == "철수는"
 
 
 @pytest.mark.parametrize(
@@ -29,6 +31,9 @@ def test_basic_josa():
         ("M", "은/는", "M은"),
         ("K", "이/가", "K가"),
         ("L", "으로/로", "L로"),
+        ("사과", "은", "사과는"),
+        ("학생", "가", "학생이"),
+        ("서울", "로", "서울로"),
         ("프로젝트", "은/는", "프로젝트는"),
         ("나에게", "만", "나에게만"),
     ],

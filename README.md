@@ -21,11 +21,16 @@ Framework integrations rely on Django and Jinja2.
 
 ### Basic API
 
+Single-form patterns like `은`, `이`, or `을` are also recognized and
+automatically expanded to their counterparts.
+
 ```python
 from korean_glue import attach, get_josa
 
 print(get_josa("사과", "은/는"))  # "는"
 print(attach("사과", "은/는"))    # "사과는"
+print(get_josa("철수", "은"))    # "는"
+print(attach("철수", "은"))      # "철수는"
 ```
 
 ### Custom Exception Rules
@@ -44,6 +49,7 @@ Install the package and run the `kglue` command:
 
 ```bash
 kglue '철수(은/는)'
+kglue '철수(은)'
 kglue 'K(이/가)'
 kglue '3(을/를)'
 ```

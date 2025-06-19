@@ -56,3 +56,4 @@ Python version.
 - Summarize user-facing changes.
 - CI/CD 자동화 검사가 통과해야 합니다. 로컬에서는 `bash scripts/check.sh`로 확인할 수 있습니다.
 - Ensure all checks pass before submitting.
+- If you update `README.md`, also update `README.ko.md` with the same content in Korean.
