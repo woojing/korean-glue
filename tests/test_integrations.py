@@ -23,6 +23,14 @@ def test_jinja_filter_basic():
     assert result == "서울로"
 
 
+def test_jinja_filter_single():
+    env = Environment()
+    jinja_filters.register(env)
+    template = env.from_string("{{ word|josa('은') }}")
+    result = template.render(word="철수")
+    assert result == "철수는"
+
+
 def test_jinja_filter_non_string():
     env = Environment()
     jinja_filters.register(env)
@@ -36,6 +44,13 @@ def test_django_filter_basic():
     template = engine.from_string("{{ word|josa:'이/가' }}")
     result = template.render(Context({"word": "사과"}))
     assert result == "사과가"
+
+
+def test_django_filter_single():
+    engine = Engine(builtins=["korean_glue.integrations.django_tags"])
+    template = engine.from_string("{{ word|josa:'은' }}")
+    result = template.render(Context({"word": "철수"}))
+    assert result == "철수는"
 
 
 def test_django_filter_non_string():

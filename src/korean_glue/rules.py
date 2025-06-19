@@ -7,6 +7,21 @@ also be processed in a reasonable way.  Only a subset of rules is implemented
 for demonstration purposes.
 """
 
+# Map single josa to their canonical pairs so that patterns like "은" will
+# behave the same as "은/는".
+_SINGLE_TO_PAIR = {
+    "은": "은/는",
+    "는": "은/는",
+    "이": "이/가",
+    "가": "이/가",
+    "을": "을/를",
+    "를": "을/를",
+    "으로": "으로/로",
+    "로": "으로/로",
+    "아": "아/야",
+    "야": "아/야",
+}
+
 
 def _hangul_has_final(word: str) -> bool:
     """Return True if ``word`` ends with a Hangul syllable that has 받침."""
@@ -55,6 +70,12 @@ def _has_final_l(word: str) -> bool:
 
 def select_josa(word: str, pattern: str) -> str:
     """Select josa according to phonological rules."""
+    # Expand patterns like "은" to "은/는" if possible
+    if "/" not in pattern:
+        canonical = _SINGLE_TO_PAIR.get(pattern)
+        if canonical is None:
+            return pattern
+        pattern = canonical
     parts = pattern.split("/")
     if len(parts) != 2:
         return pattern

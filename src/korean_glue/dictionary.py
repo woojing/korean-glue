@@ -2,12 +2,20 @@
 
 from typing import Dict, Tuple, Optional
 
+from .rules import _SINGLE_TO_PAIR
+
 _EXCEPTION_DICT: Dict[Tuple[str, str], str] = {}
 
 
 def lookup_exception(word: str, pattern: str) -> Optional[str]:
     """Return josa from exception dictionary if present."""
-    return _EXCEPTION_DICT.get((word, pattern))
+    result = _EXCEPTION_DICT.get((word, pattern))
+    if result is not None:
+        return result
+    canonical = _SINGLE_TO_PAIR.get(pattern)
+    if canonical is not None:
+        return _EXCEPTION_DICT.get((word, canonical))
+    return None
 
 
 def add_exception_rule(word: str, pattern: str, output: str) -> None:

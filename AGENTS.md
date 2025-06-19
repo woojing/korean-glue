@@ -56,3 +56,4 @@ Python version.
 - Summarize user-facing changes.
 - CI/CD 자동화 검사가 통과해야 합니다. 로컬에서는 `bash scripts/check.sh`로 확인할 수 있습니다.
 - Ensure all checks pass before submitting.
+- README.md를 수정하면 같은 변경을 한국어 문서 README.ko.md에도 적용하세요.

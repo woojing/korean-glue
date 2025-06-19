@@ -11,6 +11,8 @@ from korean_glue import (
 def test_basic_josa():
     assert get_josa("사과", "은/는") == "는"
     assert attach("사과", "은/는") == "사과는"
+    assert get_josa("철수", "은") == "는"
+    assert attach("철수", "은") == "철수는"
 
 
 @pytest.mark.parametrize(
@@ -41,5 +43,6 @@ def test_exception_rule():
     add_exception_rule("사과", "은/는", "딱")
     try:
         assert attach("사과", "은/는") == "사과딱"
+        assert attach("사과", "은") == "사과딱"
     finally:
         remove_exception_rule("사과", "은/는")

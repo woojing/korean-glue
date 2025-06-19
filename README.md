@@ -7,7 +7,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12%20|%203.13-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/github/license/woojing/korean-glue)](LICENSE)
 
-A modern Python library for Korean josa processing combining rule-based and dictionary-based approaches. Django template tags and Jinja2 filters are included for easy web framework integration.
+A modern Python library for Korean josa processing combining rule-based and dictionary-based approaches. Django template tags and Jinja2 filters are included for easy web framework integration. Patterns can be provided either as pairs like `은/는` or as a single particle such as `은`.
 
 ## Installation
 
@@ -25,7 +25,9 @@ Framework integrations rely on Django and Jinja2.
 from korean_glue import attach, get_josa
 
 print(get_josa("사과", "은/는"))  # "는"
+print(get_josa("철수", "은"))    # "는"
 print(attach("사과", "은/는"))    # "사과는"
+print(attach("철수", "은"))      # "철수는"
 ```
 
 ### Custom Exception Rules
@@ -43,7 +45,7 @@ remove_exception_rule("사과", "은/는")
 Install the package and run the `kglue` command:
 
 ```bash
-kglue '철수(은/는)'
+kglue '철수(은)'
 kglue 'K(이/가)'
 kglue '3(을/를)'
 ```
