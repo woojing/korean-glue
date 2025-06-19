@@ -7,6 +7,33 @@ also be processed in a reasonable way.  Only a subset of rules is implemented
 for demonstration purposes.
 """
 
+# Mapping of single josa forms to their canonical pair pattern.  This allows
+# passing only one side of a pair (e.g. ``"은"``) to the engine which will then
+# determine the correct counterpart automatically.
+_ALIAS_TO_PATTERN = {
+    "은": "은/는",
+    "는": "은/는",
+    "이": "이/가",
+    "가": "이/가",
+    "을": "을/를",
+    "를": "을/를",
+    "과": "과/와",
+    "와": "과/와",
+    "으로": "으로/로",
+    "로": "으로/로",
+    "아": "아/야",
+    "야": "아/야",
+    "이나": "이나/나",
+    "나": "이나/나",
+    "이랑": "이랑/랑",
+    "랑": "이랑/랑",
+}
+
+
+def _canonicalize_pattern(pattern: str) -> str:
+    """Return the canonical josa pattern for ``pattern``."""
+    return _ALIAS_TO_PATTERN.get(pattern, pattern)
+
 
 def _hangul_has_final(word: str) -> bool:
     """Return True if ``word`` ends with a Hangul syllable that has 받침."""
@@ -55,6 +82,7 @@ def _has_final_l(word: str) -> bool:
 
 def select_josa(word: str, pattern: str) -> str:
     """Select josa according to phonological rules."""
+    pattern = _canonicalize_pattern(pattern)
     parts = pattern.split("/")
     if len(parts) != 2:
         return pattern

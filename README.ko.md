@@ -21,11 +21,15 @@ pip install korean_glue
 
 ### 기본 API
 
+`은`, `이`, `을` 등 한 형태만 지정해도 자동으로 짝이 되는 조사가 선택됩니다.
+
 ```python
 from korean_glue import attach, get_josa
 
 print(get_josa("사과", "은/는"))  # "는"
 print(attach("사과", "은/는"))    # "사과는"
+print(get_josa("철수", "은"))    # "는"
+print(attach("철수", "은"))      # "철수는"
 ```
 
 ### 사용자 정의 예외 규칙
@@ -44,6 +48,7 @@ remove_exception_rule("사과", "은/는")
 
 ```bash
 kglue '철수(은/는)'
+kglue '철수(은)'
 kglue 'K(이/가)'
 kglue '3(을/를)'
 ```
