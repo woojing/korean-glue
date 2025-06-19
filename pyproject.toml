@@ -1,6 +1,6 @@
 [project]
 name = "korean_glue"
-version = "0.1.2"
+version = "0.1.3"
 description = "A modern Python library for Korean josa processing with dictionary support and framework integrations."
 readme = "README.md"
 license = { text = "MIT" }
@@ -56,7 +56,7 @@ exclude = [
 packages = ["src/korean_glue"]
 
 [tool.bumpversion]
-current_version = "0.1.2"
+current_version = "0.1.3"
 commit = true
 tag = true
 tag_name = "v{new_version}"
