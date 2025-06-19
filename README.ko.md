@@ -57,9 +57,15 @@ kglue '3(을/를)'
 
 **Django**
 
+템플릿에서 필터를 사용하려면 먼저 태그 라이브러리를 로드합니다.
+
 ```django
+{% load korean_glue.integrations.django_tags %}
 {{ variable|josa:"을/를" }}
 ```
+
+또는 `TEMPLATES` 설정의 `OPTIONS['builtins']`에
+`"korean_glue.integrations.django_tags"`를 추가하여 항상 사용할 수도 있습니다.
 
 **Jinja2**
 
