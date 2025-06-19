@@ -24,11 +24,11 @@ jobs:
         run: uv pip install hatch
       - name: Build wheel
         run: hatch build -t wheel
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
       - name: Publish Release
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*.whl
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
