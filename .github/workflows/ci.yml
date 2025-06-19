@@ -15,9 +15,9 @@ jobs:
           - "~=4.2"
           - "~=5.1"
           - "~=5.2"
-      exclude:
-        - python-version: '3.13'
-          django-version: "~=4.2"
+        exclude:
+          - python-version: '3.13'
+            django-version: "~=4.2"
     steps:
       - uses: actions/checkout@v4
       - name: Install uv and set Python
