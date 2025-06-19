@@ -58,9 +58,15 @@ kglue '3(을/를)'
 
 **Django**
 
+To use the filter, load the template tag library first:
+
 ```django
+{% load korean_glue.integrations.django_tags %}
 {{ variable|josa:"을/를" }}
 ```
+
+Alternatively add `"korean_glue.integrations.django_tags"` to
+`OPTIONS['builtins']` in the `TEMPLATES` setting.
 
 **Jinja2**
 
