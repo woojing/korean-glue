@@ -1,9 +1,32 @@
+fail_fast: true
+
 repos:
-  - repo: https://github.com/psf/black
-    rev: 24.3.0
+  - repo: local
     hooks:
-      - id: black
-  - repo: https://github.com/pycqa/flake8
-    rev: 6.1.0
-    hooks:
-      - id: flake8
+      - id: ruff-format
+        name: Ruff Format
+        entry: uv run ruff
+        args: [format]
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: ruff
+        name: Ruff
+        entry: uv run ruff
+        args: ["check", "--fix", "--exit-non-zero-on-fix"]
+        types: [python]
+        language: system
+        pass_filenames: false
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        args: [src]
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: uv-lock-check
+        name: Check uv.lock is up to date
+        entry: uv lock --check
+        language: system
+        files: ^(pyproject\.toml|uv\.lock)$
+        pass_filenames: false

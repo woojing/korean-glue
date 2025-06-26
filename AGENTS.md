@@ -12,29 +12,17 @@ This document provides guidelines for making changes to this open source Python 
 
 1. **Create and activate the virtual environment:**
    ```bash
-   uv venv
+   uv sync
    source .venv/bin/activate    # On Windows use: .venv\Scripts\activate
    ```
-2. **Install dependencies:**
+2. **Set up pre-commit hooks:**
    ```bash
-   uv pip install -e ".[dev]"
-   ```
-3. **Set up pre-commit hooks:**
-   ```bash
-   pre-commit install
+   uv run pre-commit install
    ```
 
 ## Quality Checks & Workflow
 
-Run all checks with the helper script:
-
-```bash
-bash scripts/check.sh
-```
-
-The script runs formatting and linting via `pre-commit`, then type checks with `mypy` and runs the test suite with `pytest`.
-
-You can also invoke pre-commit manually:
+You can invoke pre-commit manually:
 ```bash
 pre-commit run --all-files
 ```
@@ -45,7 +33,7 @@ If `bash scripts/check.sh` fails because tools are missing, ensure the
 development dependencies are installed:
 
 ```bash
-uv pip install -e ".[dev]"
+uv sync
 ```
 
 Reinstall them whenever you recreate the virtual environment or change the
