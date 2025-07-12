@@ -31,6 +31,16 @@ def test_jinja_filter_non_string():
     assert result == "10"
 
 
+def test_jinja_text_block():
+    env = Environment()
+    jinja_filters.register(env)
+    template = env.from_string(
+        "{% filter josa_text %}철수(은) {{ place }}(을/를) 좋아한다{% endfilter %}"
+    )
+    result = template.render(place="사과")
+    assert result == "철수는 사과를 좋아한다"
+
+
 def test_django_filter_basic():
     engine = Engine(builtins=["korean_glue.integrations.django_tags"])
     template = engine.from_string("{{ word|josa:'이/가' }}")
@@ -43,3 +53,13 @@ def test_django_filter_non_string():
     template = engine.from_string("{{ value|josa:'을/를' }}")
     result = template.render(Context({"value": 10}))
     assert result == "10"
+
+
+def test_django_text_block():
+    engine = Engine(builtins=["korean_glue.integrations.django_tags"])
+    template = engine.from_string(
+        "{% filter josa_text %}{{ person }}(은) {{ item }}(을/를) 샀다{% endfilter %}"
+    )
+    ctx = Context({"person": "민수", "item": "책"})
+    result = template.render(ctx)
+    assert result == "민수는 책을 샀다"

@@ -78,6 +78,15 @@ jinja_filters.register(env)
 result = env.from_string("{{ word|josa('으로/로') }}").render(word="서울")
 ```
 
+`josa_text` 필터를 사용하면 여러 개의 ``단어(조사)`` 형식을 한 번에 처리할 수 있습니다.
+
+```django
+{% load korean_glue.integrations.django_tags %}
+{% filter josa_text %}
+{{ person }}(은) {{ item }}(을/를) 샀다
+{% endfilter %}
+```
+
 ## 테스트 실행
 
 개발 환경을 준비한 뒤 다음 명령어로 테스트를 실행합니다(자세한 내용은 `CONTRIBUTING.md` 참고).
@@ -85,3 +94,4 @@ result = env.from_string("{{ word|josa('으로/로') }}").render(word="서울")
 ```bash
 pytest
 ```
+

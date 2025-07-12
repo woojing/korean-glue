@@ -79,6 +79,16 @@ jinja_filters.register(env)
 result = env.from_string("{{ word|josa('으로/로') }}").render(word="서울")
 ```
 
+Use the `josa_text` filter to process a block containing multiple
+``WORD(PATTERN)`` placeholders at once:
+
+```django
+{% load korean_glue.integrations.django_tags %}
+{% filter josa_text %}
+{{ person }}(은) {{ item }}(을/를) 샀다
+{% endfilter %}
+```
+
 ## Running Tests
 
 After setting up a development environment (see `CONTRIBUTING.md`), run:
