@@ -2,6 +2,9 @@
 
 from .rules import select_josa
 from .dictionary import lookup_exception
+import re
+
+_BLOCK_RE = re.compile(r"([^\s()]+)\(([^()]+)\)")
 
 
 def attach(word: str, pattern: str) -> str:
@@ -16,3 +19,13 @@ def get_josa(word: str, pattern: str) -> str:
     if josa is not None:
         return josa
     return select_josa(word, pattern)
+
+
+def auto_attach(text: str) -> str:
+    """Replace ``WORD(PATTERN)`` placeholders in ``text`` with attached josa."""
+
+    def repl(match: re.Match) -> str:
+        word, pattern = match.groups()
+        return attach(word, pattern)
+
+    return _BLOCK_RE.sub(repl, text)
